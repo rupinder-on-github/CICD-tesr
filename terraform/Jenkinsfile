@@ -28,6 +28,13 @@ pipeline {
                   /usr/local/bin/terraform plan 
                 '''
             }
+        stage('Running terraform apply') {
+            steps {
+                sh '''
+                  cd  terraform
+                  /usr/local/bin/terraform apply 
+                '''
+            }            
         }
     }
 }
