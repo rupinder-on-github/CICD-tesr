@@ -1,0 +1,27 @@
+pipeline {
+    agent  any 
+    stages {
+        stage('build') {
+            steps {
+                git branch: 'feature', changelog: false, poll: false, url: 'git@github.com:rupinder-on-github/CICD-test.git'
+            }
+        }
+        stage('Initialising terraform') {
+            steps {
+                sh '''
+                  cd  terraform
+                  /usr/local/bin/terraform init
+                '''
+
+            }
+        }
+        stage('Running terraform plan') {
+            steps {
+                sh '''
+                  cd  terraform
+                  /usr/local/bin/terraform plan
+                '''
+            }
+        }
+    }
+}
