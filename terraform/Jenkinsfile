@@ -1,19 +1,22 @@
 pipeline {
     agent  any 
+    parameters {
+       string defaultValue: '/usr/local/bin/terraform', description: '', name: 'terraform_cmd', trim: false
+            }
+
     stages {
-        stage('build') {
+        stage('build')  {
             steps {
                 git branch: 'feature', changelog: false, poll: false, url: 'git@github.com:rupinder-on-github/CICD-test.git'
             }
         }
         stage('Initialising terraform') {
             steps {
-              parameters {
-               string defaultValue: '/usr/local/bin/terraform', description: '', name: 'terraform_cmd', trim: false
-               }
+
                 sh '''
                   cd  terraform
                   ${terraform_cmd} init
+                  ls -lrt
                 '''
 
             }
