@@ -15,7 +15,7 @@ pipeline {
 
                 sh '''
                   cd  terraform
-                  ${terraform_cmd} init
+                  $terraform_cmd init
                   ls -lrt
                 '''
 
