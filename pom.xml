@@ -245,7 +245,7 @@
 							<jvmFlag>-Dcircle_workflow_guid=${circle.workflow}</jvmFlag>
 						</jvmFlags>
 						<ports>
-							<port>8080</port>
+							<port>8084</port>
 						</ports>
 					</container>
 				</configuration>
