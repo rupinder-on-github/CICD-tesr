@@ -33,7 +33,7 @@ pipeline {
             steps {
                 sh '''
                   cd  terraform
-                  /usr/local/bin/terraform apply 
+                  /usr/local/bin/terraform apply -auto-approve
                 '''
             }            
         }
