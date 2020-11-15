@@ -8,9 +8,13 @@ pipeline {
         }
         stage('Initialising terraform') {
             steps {
+
+                    parameters: [
+                        [$class: 'TextParameterDefinition', defaultValue: '/usr/local/bin/terraform ', description: 'terraform_cmd', name: 'DEV_PROJECT'],
+                             ] 
                 sh '''
                   cd  terraform
-                  /usr/local/bin/terraform init
+                  ${terraform_cmd} init
                 '''
 
             }
