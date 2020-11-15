@@ -2,7 +2,7 @@ pipeline {
     agent  any 
     parameters {
        string defaultValue: '/usr/local/bin/terraform', description: '', name: 'terraform_cmd', trim: false
-            }
+        }
 
     stages {
         stage('build')  {
@@ -25,7 +25,7 @@ pipeline {
             steps {
                 sh '''
                   cd  terraform
-                  /usr/local/bin/terraform plan
+                  /usr/local/bin/terraform plan 
                 '''
             }
         }
