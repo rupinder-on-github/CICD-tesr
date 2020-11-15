@@ -7,10 +7,10 @@ pipeline {
             }
         }
         stage('Initialising terraform') {
-            parameters {
+            steps {
+              parameters {
                string defaultValue: '/usr/local/bin/terraform', description: '', name: 'terraform_cmd', trim: false
                }
-            steps {
                 sh '''
                   cd  terraform
                   ${terraform_cmd} init
