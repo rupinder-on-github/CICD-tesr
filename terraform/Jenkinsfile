@@ -28,6 +28,7 @@ pipeline {
                   /usr/local/bin/terraform plan 
                 '''
             }
+        }
         stage('Running terraform apply') {
             steps {
                 sh '''
@@ -36,5 +37,6 @@ pipeline {
                 '''
             }            
         }
-    }
+   }
 }
+
